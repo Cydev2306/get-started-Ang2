@@ -1,1 +1,9 @@
 <h2>Liste de randonnées</h2> 
+
+
+
+<div *ngFor="let hike of hikes">
+	<a [routerLink]="['/hike', hike.id]">{{hike.name}}</a> - {{ hike.description}}
+	<br>
+	<br>
+</div>
