@@ -10,6 +10,7 @@ import {HikeService } from './hike.service';
 })
 export class HikeListComponent {
 	hikes: Hike[];
+	searchTerm: string;
 
 	constructor(private _hikeService: HikeService) {}
 	ngOnInit(){
@@ -21,7 +22,7 @@ export class HikeListComponent {
 				res => this.hikes = res,
 				err => console.error(err.status)
 			)
-			// 3 cb en param ok, err, done 
+			// 3 cb en param ok, err, done
 		console.log(this.hikes);
 	}
 

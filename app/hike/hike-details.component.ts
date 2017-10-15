@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -10,12 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class HikeDetailsComponent implements OnInit {
-
-	constructor(private _route: ActivatedRoute) {
+	title: string;
+	constructor(private _route: ActivatedRoute, private _router: Router) {
 	}
 
 	ngOnInit () {
 		let id = this._route.snapshot.params['id'];
+		this.title = `Détail de la randonnée ${id}`;
+	}
+	goBack () {
+		this._router.navigate(['/hikes']);
+		console.log('click');
 	}
 
 
