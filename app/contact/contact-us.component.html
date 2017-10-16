@@ -1,1 +1,23 @@
 <h2>Contactez-nous</h2>
+
+<!-- # permet de créer des variables coté template-->
+<form #form="ngForm">
+	<div class="form-group">
+		<label for="subject">Sujet</label>
+		<input type="text" ngModel name="subject" class="form-control" id="subject" placeholder="votre sujet">
+	</div>
+	<div class="form-group">
+		<label for="message">Message</label>
+		<textarea type="text" ngModel name="message" class="form-control" id="message" placeholder="votre message"></textarea>
+	</div>
+	<div class="form-group">
+		<label for="service">Service</label>
+		<select ngModel name="service" id="service" class="form-control">
+			<option value="tech">Technique</option>
+			<option value="sales">Commercial</option>
+			<option value="guide">Guide moyenne montagne</option>
+		</select>
+	</div>
+	<button type="submit" class="btn btn-default">Envoyer</button>
+</form>
+{{form.value | json}}
