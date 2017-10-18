@@ -1,14 +1,32 @@
 <h2>Contactez-nous</h2>
 
 <!-- # permet de créer des variables coté template-->
-<form #form="ngForm">
-	<div class="form-group">
-		<label for="subject">Sujet</label>
-		<input type="text" ngModel name="subject" class="form-control" id="subject" placeholder="votre sujet">
+<form #form="ngForm" novalidate>
+	<div class="form-group" 
+		[class.has-error]="msgSubject.invalid && msgSubject.touched">
+		<label for="subject" class="control-label">Sujet</label>
+		<input type="text" 
+			#msgSubject="ngModel" 
+			required 
+			ngModel 
+			name="subject" 
+			class="form-control" 
+			id="subject" 
+			placeholder="votre sujet">
+		<!--div *ngIf="msgSubject.invalid && msgSubject.touched">sujet manquant</div-->
 	</div>
-	<div class="form-group">
-		<label for="message">Message</label>
-		<textarea type="text" ngModel name="message" class="form-control" id="message" placeholder="votre message"></textarea>
+	<div class="form-group"
+		[class.has-error]="msgContent.invalid && msgContent.touched">
+		<label for="message" class="control-label">Message</label>
+		<textarea type="text" 
+			ngModel
+			required 
+			#msgContent="ngModel" 
+			name="message" 
+			class="form-control" 
+			id="message" 
+			placeholder="votre message">
+		</textarea>
 	</div>
 	<div class="form-group">
 		<label for="service">Service</label>
@@ -18,6 +36,6 @@
 			<option value="guide">Guide moyenne montagne</option>
 		</select>
 	</div>
-	<button type="submit" class="btn btn-default">Envoyer</button>
+	<button type="submit" class="btn btn-primary" [disabled]="form.invalid">Envoyer</button>
 </form>
-{{form.value | json}}
+Form: {{form.valid | json}}
