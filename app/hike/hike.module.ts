@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 
 import { HikeListComponent } from './hike-list.component';
 import { HikeDetailsComponent } from './hike-details.component';
+import { HikeSummaryComponent } from './hike-summary.component';
+
 import { HikeFilterPipe } from './hike-filter.pipe'
 import { HikeService } from './hike.service';
 @NgModule({
 	imports: [CommonModule, RouterModule,FormsModule],
-	declarations: [HikeListComponent, HikeDetailsComponent, HikeFilterPipe], // declaration des composants
+	declarations: [HikeListComponent, HikeDetailsComponent, HikeFilterPipe, HikeSummaryComponent], // declaration des composants
 	exports: [HikeListComponent],
 	providers: [HikeService] // services
 })
