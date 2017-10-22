@@ -16,6 +16,6 @@ export class ContactUsComponent {
 	}
 
 	sendMessage(form: NgForm){
-		this._contactService.postContactForm(form.value);
+    this._contactService.postContactForm(form.value);
 	}
 }

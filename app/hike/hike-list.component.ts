@@ -25,7 +25,9 @@ export class HikeListComponent {
 			// 3 cb en param ok, err, done
 		console.log(this.hikes);
 	}
-
+	addToMyTodoHike(hikeToAdd: Hike){
+		console.log(`Rando ${hikeToAdd.name} ajoutée`)
+	}
 
 
 
